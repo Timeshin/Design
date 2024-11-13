@@ -48,7 +48,6 @@ const Card: FC<CardProps> = ({ data, number }) => (
         src={data.img}
         width={420}
         height={320}
-        layout='responsive'
         quality={100}
       />
     </div>

@@ -34,8 +34,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "npm run eslint",
-      "npm run prettier"
+      "npm run prettier",
+      "npm run eslint"
     ]
   }
 }
