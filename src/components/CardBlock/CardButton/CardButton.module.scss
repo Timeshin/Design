@@ -1,0 +1,37 @@
+.button {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  padding-left: 16px;
+  gap: 12px;
+  color: #fff;
+  box-shadow: 0px 4px 8px 0px #3d93007a;
+  box-shadow: 0px 0px 0px 4px #5bc0143d;
+  border: 3px solid #95ff4ba3;
+  background: linear-gradient(180deg, #5dc416 0%, #367b05 100%);
+  border-radius: 16px;
+  background-origin: border-box;
+  height: 48px;
+  width: 220px;
+  margin-top: 64px;
+  margin-right: 260px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(180deg, #58bd11 0%, #45940e 100%);
+    border: 4px solid #95ff4ba3;
+  }
+
+  &:active {
+    border: 2px solid #95ff4b7a;
+    background: linear-gradient(360deg, #51a814 0%, #368300 100%);
+  }
+}
+
+@media (max-width: 1280px) {
+  .button {
+    align-self: center;
+    margin-right: 0;
+  }
+}

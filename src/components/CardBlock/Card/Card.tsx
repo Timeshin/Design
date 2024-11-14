@@ -1,8 +1,7 @@
-import { FC } from 'react'
+import { CSSProperties, FC } from 'react'
 import { CardData } from '@/consts/cards.meta'
-
 import Image from 'next/image'
-
+import Arrow from '/public/assets/icons/arrow.svg'
 import classes from './Card.module.scss'
 
 interface CardProps {
@@ -11,35 +10,29 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ data, number }) => (
-  <div className={classes.card}>
-    <div
-      style={{
-        background: `linear-gradient(${data.borderGradient.start}, ${data.borderGradient.end})`
-      }}
-      className={`${classes.gradientBorder} ${classes.mainBorder}`}
-    />
-    <div
-      style={{
-        background: `linear-gradient(${data.gradient.start}, ${data.gradient.end})`
-      }}
-      className={classes.content}
-    >
+  <div
+    className={classes.card}
+    style={
+      {
+        '--border-start-color': data.borderGradient.start,
+        '--border-end-color': data.borderGradient.end,
+        '--gradient-start-color': data.gradient.start,
+        '--gradient-end-color': data.gradient.end,
+        '--hover-gradient-start-color': data.hoverGradient.start,
+        '--hover-gradient-end-color': data.hoverGradient.end
+      } as CSSProperties
+    }
+  >
+    {data.hasArrow && (
+      <div className={classes.arrow}>
+        <Arrow />
+      </div>
+    )}
+    <div className={classes.content}>
       <header className={classes.cardHeader}>
         <div className={classes.numberWrapper}>
-          <div
-            style={{
-              background: `linear-gradient(to top, ${data.borderGradient.start}, rgba(255, 255, 255, 0))`
-            }}
-            className={`${classes.gradientBorder} ${classes.numberBorder}`}
-          />
-          <span
-            style={{
-              background: `linear-gradient(to top, ${data.gradient.start}, ${data.gradient.end})`
-            }}
-            className={classes.number}
-          >
-            {number}
-          </span>
+          <div className={classes.numberBorder} />
+          <span className={classes.number}>{number}</span>
         </div>
         <span className={classes.title}>{data.title}</span>
       </header>

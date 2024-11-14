@@ -10,7 +10,12 @@ interface CardData {
     start: string
     end: string
   }
+  hoverGradient: {
+    start: string
+    end: string
+  }
   img: string
+  hasArrow?: boolean
 }
 
 const cardsData: CardData[] = [
@@ -24,11 +29,16 @@ const cardsData: CardData[] = [
       start: '#6377E1',
       end: '#2920A5'
     },
+    hoverGradient: {
+      start: '#657EFF',
+      end: '#2920A5'
+    },
     borderGradient: {
       start: 'rgba(255, 255, 255, 0.32)',
       end: '#475FDF'
     },
-    img: '/assets/images/cardImage1.png'
+    img: '/assets/images/cardImage1.png',
+    hasArrow: true
   },
   {
     title: (
@@ -40,11 +50,16 @@ const cardsData: CardData[] = [
       start: '#E163E1',
       end: '#741595'
     },
+    hoverGradient: {
+      start: '#FC69FC',
+      end: '#741595'
+    },
     borderGradient: {
       start: 'rgba(255, 255, 255, 0.32)',
       end: '#B247DF'
     },
-    img: '/assets/images/cardImage2.png'
+    img: '/assets/images/cardImage2.png',
+    hasArrow: true
   },
   {
     title: (
@@ -54,6 +69,10 @@ const cardsData: CardData[] = [
     ),
     gradient: {
       start: '#55CE00',
+      end: '#014D1D'
+    },
+    hoverGradient: {
+      start: '#5DE101',
       end: '#014D1D'
     },
     borderGradient: {

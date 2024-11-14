@@ -1,17 +1,67 @@
 .card {
   position: relative;
-  width: 420px;
-  height: 350px;
-  padding: 2px;
   color: #fff;
+  cursor: pointer;
+  flex: 1;
+  background: linear-gradient(
+    var(--gradient-start-color),
+    var(--gradient-end-color)
+  );
+  border-radius: 20px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(
+      var(--border-start-color),
+      var(--border-end-color)
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: 0.3s all;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: linear-gradient(
+        var(--hover-gradient-start-color),
+        var(--hover-gradient-end-color)
+      );
+
+      &:before {
+        padding: 6px;
+      }
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    &:hover {
+      background: linear-gradient(
+        var(--hover-gradient-start-color),
+        var(--hover-gradient-end-color)
+      );
+
+      &:before {
+        padding: 6px;
+      }
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 30%;
+    right: -45px;
+    z-index: 1;
+  }
 
   .mainBorder {
     border-radius: 20px;
-  }
-
-  .gradientBorder {
-    position: absolute;
-    inset: 0;
+    z-index: inherit;
   }
 
   .content {
@@ -30,11 +80,7 @@
         position: relative;
         width: 48px;
         height: 48px;
-        padding: 2px;
-
-        .numberBorder {
-          border-radius: 50%;
-        }
+        flex-shrink: 0;
 
         .number {
           display: flex;
@@ -45,6 +91,28 @@
           height: 100%;
           border-radius: 50%;
           font-size: 24px;
+          background: linear-gradient(
+            to top,
+            var(--gradient-start-color),
+            var(--gradient-end-color)
+          );
+
+          &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            border-radius: 50%;
+            background: linear-gradient(
+              to top,
+              var(--border-start-color),
+              rgba(255, 255, 255, 0)
+            );
+            mask:
+              linear-gradient(#000 0 0) content-box,
+              linear-gradient(#000 0 0);
+            mask-composite: exclude;
+          }
         }
       }
 
@@ -59,6 +127,16 @@
       bottom: -57px;
       width: 100%;
       height: 90%;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .card {
+    .arrow {
+      transform: rotate(90deg) rotateX(180deg);
+      top: 100%;
+      right: -30px;
     }
   }
 }
